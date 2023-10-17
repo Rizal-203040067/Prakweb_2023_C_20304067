@@ -21,5 +21,25 @@ function query($query){
     return $rows;
 }
 
+function tambah($data) {
+    $conn = koneksi();
+
+    // sanitasi data
+    $judul = mysqli_real_escape_string($conn, htmlspecialchars($data['judul']));
+    $penulis = mysqli_real_escape_string($conn, htmlspecialchars($data['penulis']));
+    $penerbit = mysqli_real_escape_string($conn, htmlspecialchars($data['penerbit']));
+    $kategori = mysqli_real_escape_string($conn, htmlspecialchars($data['kategori']));
+    $gambar = mysqli_real_escape_string($conn, htmlspecialchars($data['gambar']));
+
+    // siapkan query insert data
+    $query =  "INSERT INTO buku
+                    VALUES (null, '$judul', '$penulis', '$penerbit', '$kategori', '$gambar')";
+
+    // insert data ke tabel buku
+    mysqli_query($conn, $query) or die ('Query GAGAL! ' .mysqli_error($conn));
+
+    // kembalikan nilai keberhasilannya
+    return mysqli_affected_rows($conn);
+}
 
 ?>
