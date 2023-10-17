@@ -55,8 +55,8 @@ $buku = query("SELECT * FROM buku");
                                     <h5 class="card-title"><?= $b['judul']; ?></h5>
                                     <p class="card-text"><small class="text-body-secondary"><?= $b['penulis']; ?> | <?= $b['penerbit']; ?></small></p>
 
-                                    <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="ubah.php?id=<?= $b['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="hapus.php?id=<?= $b['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('yakin?')">Delete</a>
                                 </div>
                             </div>
                         </div>
