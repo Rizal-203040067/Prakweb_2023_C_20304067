@@ -1,3 +1,9 @@
+<?php
+require 'functions.php';
+$buku = query("SELECT * FROM buku");
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,108 +42,29 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="img/naruto.jpg" class="img-fluid rounded-start" alt="Naruto">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <span class="position-absolute top-0 end-0 bg-dark text-light px-2 py-1 opacity-75"><small>Komik</small></span>
-                                <h5 class="card-title">Naruto</h5>
-                                <p class="card-text"><small class="text-body-secondary">Masashi Kishimoto | Gramedia</small></p>
+            <?php foreach($buku as $b) : ?>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="img/<?= $b['gambar']; ?>" class="img-fluid rounded-start" alt="<?= $b['judul']; ?>">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="position-absolute top-0 end-0 bg-dark text-light px-2 py-1 opacity-75"><small><?= $b['kategori']; ?></small></span>
+                                    <h5 class="card-title"><?= $b['judul']; ?></h5>
+                                    <p class="card-text"><small class="text-body-secondary"><?= $b['penulis']; ?> | <?= $b['penerbit']; ?></small></p>
 
-                                <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="img/naruto.jpg" class="img-fluid rounded-start" alt="Naruto">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <span class="position-absolute top-0 end-0 bg-dark text-light px-2 py-1 opacity-75"><small>Komik</small></span>
-                                <h5 class="card-title">Naruto</h5>
-                                <p class="card-text"><small class="text-body-secondary">Masashi Kishimoto | Gramedia</small></p>
-
-                                <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="img/naruto.jpg" class="img-fluid rounded-start" alt="Naruto">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <span class="position-absolute top-0 end-0 bg-dark text-light px-2 py-1 opacity-75"><small>Komik</small></span>
-                                <h5 class="card-title">Naruto</h5>
-                                <p class="card-text"><small class="text-body-secondary">Masashi Kishimoto | Gramedia</small></p>
-
-                                <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="img/naruto.jpg" class="img-fluid rounded-start" alt="Naruto">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <span class="position-absolute top-0 end-0 bg-dark text-light px-2 py-1 opacity-75"><small>Komik</small></span>
-                                <h5 class="card-title">Naruto</h5>
-                                <p class="card-text"><small class="text-body-secondary">Masashi Kishimoto | Gramedia</small></p>
-
-                                <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="img/naruto.jpg" class="img-fluid rounded-start" alt="Naruto">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <span class="position-absolute top-0 end-0 bg-dark text-light px-2 py-1 opacity-75"><small>Komik</small></span>
-                                <h5 class="card-title">Naruto</h5>
-                                <p class="card-text"><small class="text-body-secondary">Masashi Kishimoto | Gramedia</small></p>
-
-                                <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
-    </div>
-    
+     
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
